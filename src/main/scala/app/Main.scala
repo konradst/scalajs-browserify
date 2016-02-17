@@ -3,10 +3,9 @@ package app
 import scala.scalajs.js, js.JSApp
 
 @js.native
-class Bundle extends js.Object {
-
-  def $ : js.Function1[js.Any, Jquery] = js.native
-  def `_`: Lodash = js.native
+object Bundle extends js.Object {
+  def jquery : js.Function1[js.Any, Jquery] = js.native
+  def lodash: Lodash = js.native
 }
 
 @js.native
@@ -23,10 +22,8 @@ trait Lodash extends js.Object {
 object Main extends JSApp {
   def main(): Unit = {
     println("hello from scalajs")
-    val lib = new Bundle
-    println(lib.$)
-    println(lib.`_`)
-    lib.$("h1").text(lib.`_`.camelCase("Hello World"))
+    import Bundle._
+    jquery("#title").text(lodash.camelCase("This is a test"))
     //println(js.Dynamic.global.Bundle)
   }
 }
