@@ -1,0 +1,8 @@
+<h1></h1>
+<script src="src/main/resources/bundle.js"></script>
+<script>
+var lib = new Bundle();
+console.log(lib.$)
+console.log(lib._)
+lib.$("h1").text(lib._.camelCase("Hello, world."))
+</script>
